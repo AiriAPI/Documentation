@@ -92,6 +92,12 @@ const config: DocsThemeConfig = {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1733730047414795"
           crossOrigin="anonymous"
         />
+        <script
+          async
+          data-cfasync="false"
+          src="//pl23056840.profitablegatecpm.com/5bcdf80e65010d1d87f4f13b92c43da9/invoke.js"
+        ></script>
+        <div id="container-5bcdf80e65010d1d87f4f13b92c43da9"></div>
       </>
     );
   },
