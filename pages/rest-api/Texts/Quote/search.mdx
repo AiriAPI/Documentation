@@ -2,11 +2,11 @@ import { Tab, Tabs } from "nextra-theme-docs";
 
 # Search
 
-This endpoint allows you to access and retrieve information about your favorite quotes. To access the `/quote` endpoint, you 
+This endpoint allows you to access and retrieve information about your favorite quotes. To access the `/quote` endpoint, you
 will need to provide the proper authentication using the Authorization header.
 
-
 ## Endpoint Details
+
 The `/quote` endpoint allows you to retrieve information about a specific quote.
 
 - **URL**: `/quote`
@@ -20,7 +20,7 @@ To make requests to the `/quote` endpoint, you must include an `Authorization` h
 ### Example Authorization Header
 
 ```jsx
-Authorization: YOUR_ACCESS_TOKEN
+Authorization: YOUR_ACCESS_TOKEN;
 ```
 
 Replace `YOUR_ACCESS_TOKEN` with the actual token provided to you.
@@ -29,11 +29,21 @@ Replace `YOUR_ACCESS_TOKEN` with the actual token provided to you.
 
 The request to the `/quote` endpoint should be a JSON object with the following headers:
 
-| Header          | Type    | Description                                          | Required |
-| --------------- | ------- | ---------------------------------------------------- | -------- |
-| `Authorization` | string  | The unique identifier of the user sending the request. | True     |
+| Header          | Type   | Description                                            | Required |
+| --------------- | ------ | ------------------------------------------------------ | -------- |
+| `Authorization` | string | The unique identifier of the user sending the request. | True     |
+
+### Parameters
+
+The request parameters for the `/quote?{parameter}={value}` endpoint.
+
+| Parameter   | Type   | Description                                                                                             | Required |
+| ----------- | ------ | ------------------------------------------------------------------------------------------------------- | -------- |
+| `character` | string | (Optional) The desired character name for the query. If not provided, a random quote will be generated. | False    |
+| `anime`     | string | (Optional) The desired anime name for the query. If not provided, a random quote will be selected.      | False    |
 
 ### Example Request
+
 Here's example of how to make a request to the `/quote` endpoint.
 
 <Tabs items={["JavaScript", "Python"]}>
@@ -58,6 +68,7 @@ Here's example of how to make a request to the `/quote` endpoint.
 
     console.log(data);
     ```
+
   </Tab>
   <Tab>
     ```python
@@ -74,6 +85,7 @@ Here's example of how to make a request to the `/quote` endpoint.
 
     print(data)
     ```
+
   </Tab>
 </Tabs>
 
@@ -81,7 +93,7 @@ Remember to replace `YOUR_ACCESS_TOKEN` with your actual access token.
 
 ## Responses
 
-The server will respond with an appropriate message based on the input provided. A successfully API request will respond 
+The server will respond with an appropriate message based on the input provided. A successfully API request will respond
 with a JSON object containing the following information:
 
 - `_id`: The unique identifier of the quote.
@@ -92,29 +104,21 @@ with a JSON object containing the following information:
 
 <Tabs items={["200 OK", "404 Not Found", "500 Internal Server Error"]}>
   <Tab>
-    **Content Type:** `application/json`
-    ```json copy=false
-      "_id": 88,
-      "quote": "I don't know everything. I just know what I know.",
-      "from": "Nisemonogatari",
-      "author": "Tsubasa Hanekawa"
+    **Content Type:** `application/json` ```json copy=false "_id": 88, "quote":
+    "I don't know everything. I just know what I know.", "from":
+    "Nisemonogatari", "author": "Tsubasa Hanekawa" ```
+  </Tab>
+  <Tab>
+    **Content Type:** `application/json` ```json copy=false "status": 404,
+    "message": {}
     ```
   </Tab>
   <Tab>
-    **Content Type:** `application/json`
-    ```json copy=false
-      "status": 404,
-      "message": {}
-    ```
-  </Tab>
-  <Tab>
-    **Content Type:** `application/json`
-    ```json copy=false
-      "status": 500,
-      "message": {}
+    **Content Type:** `application/json` ```json copy=false "status": 500,
+    "message": {}
     ```
   </Tab>
 </Tabs>
 
-This documentation should help you use [`axios`](https://www.npmjs.com/package/axios) for Node.js and [`requests`](https://pypi.org/project/requests/) 
+This documentation should help you use [`axios`](https://www.npmjs.com/package/axios) for Node.js and [`requests`](https://pypi.org/project/requests/)
 for Python to interact with the `/quote` endpoint.
